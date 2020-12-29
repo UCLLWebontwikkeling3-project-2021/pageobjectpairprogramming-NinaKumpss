@@ -3,7 +3,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 /**
@@ -17,7 +21,12 @@ public class AddContactTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\ninak\\OneDrive\\Documenten\\chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("profile.managed_default_content_settings.javascript", 2);
+        options.setExperimentalOption("prefs", prefs);
+        driver = new ChromeDriver(options);
+
         driver.get(path + "Controller?command=Index");
     }
 
@@ -49,8 +58,8 @@ public class AddContactTest {
 
         addContactPage.submitValid();
         assertEquals("Contacts", addContactPage.getTitle());
-        addContactPage.setFirstNameField("Mark");
-        addContactPage.setLastNamefield("Walberg");
+        assertTrue(addContactPage.containsFirstName("Mark"));
+        assertTrue(addContactPage.containsLastName("Mark"));
         assertTrue(addContactPage.containsDate("11/11/2020"));
         assertTrue(addContactPage.containsHour("08:55"));
         assertTrue(addContactPage.containsPhoneNumber("0412456512"));

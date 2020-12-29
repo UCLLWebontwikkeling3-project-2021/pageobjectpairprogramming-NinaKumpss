@@ -5,14 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * @author Nina Kumps
  */
 
 public class LogInPage extends Page {
-       @FindBy(id="userId")
+    @FindBy(id="userId")
     private WebElement userIdField;
 
     @FindBy(id="password")
@@ -37,31 +35,30 @@ public class LogInPage extends Page {
         passwordField.sendKeys(password);
     }
 
-    public HomePage submitValid() {
+    public void submitValid() {
         signUpButton.click();
-        return PageFactory.initElements(driver, HomePage.class);
-    }
-
-    public void submitInvalid() {
-        signUpButton.click();
-    }
-
-    public boolean hasErrorMessage(String message) {
-        WebElement errorMessage = driver.findElement(By.xpath("/html/body/div/main/div/ul/li"));
-        return message.equals(errorMessage.getText());
-    }
-
-    public boolean previousUserId(String userId) {
-        return userId.equals(userIdField.getAttribute("value"));
-    }
-
-    public boolean userIdIsEmpty() {
-        return userIdField.getAttribute("value").isEmpty();
+        //return PageFactory.initElements(driver, HomePage.class);
     }
 
     public void loginUser() {
         setUserId("nina");
         setPassword("test");
         submitValid();
+    }
+
+    public void loginAdmin() {
+        setUserId("admin");
+        setPassword("admin");
+        submitValid();
+    }
+
+    public boolean hasErrorMessage(String message) {
+        WebElement errorMessage = driver.findElement(By.xpath("/html/body/div/main/div/ul/li"));
+        return (message.equals(errorMessage.getText()));
+    }
+
+    public boolean hasWelcomeMessage (String message) {
+        WebElement welcomeMsg = driver.findElement(By.xpath("/html/body/div/main/p"));
+        return message.equals(welcomeMsg.getText());
     }
 }
