@@ -7,12 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.Assert.assertEquals;
 
-public class LogInPage extends Page {
-    /*
-     * @author Nina Kumps
-     */
+/**
+ * @author Nina Kumps
+ */
 
-    @FindBy(id="userId")
+public class LogInPage extends Page {
+       @FindBy(id="userId")
     private WebElement userIdField;
 
     @FindBy(id="password")

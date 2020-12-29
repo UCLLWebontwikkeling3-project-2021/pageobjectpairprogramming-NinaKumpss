@@ -1,9 +1,10 @@
 import org.openqa.selenium.WebDriver;
 
+/**
+ * @author Nina Kumps
+ */
+
 public abstract class Page {
-    /*
-     * @author Nina Kumps
-     */
     WebDriver driver;
     String path = "http://localhost:8080/Deelopdracht4_war_exploded/";
 

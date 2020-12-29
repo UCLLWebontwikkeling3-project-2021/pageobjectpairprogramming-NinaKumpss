@@ -6,10 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 
+/**
+ * @author Nina Kumps
+ */
+
 public class AddContactPage extends Page{
-    /*
-     * @author Nina Kumps
-     */
     public AddContactPage(WebDriver driver) {
         super(driver);
         this.getDriver().get(getPath()+ "Controller?command=ContactOverview");

@@ -6,12 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.Assert.*;
+/**
+ * @author Nina Kumps
+ */
 
 public class AddContactTest {
-    /*
-     * @author Nina Kumps
-     */
-
     private WebDriver driver;
     private String path = "http://localhost:8080/Deelopdracht4_war_exploded/";
 
@@ -21,11 +20,11 @@ public class AddContactTest {
         driver = new ChromeDriver();
         driver.get(path + "Controller?command=Index");
     }
-/*
+
     @After
     public void clean() {
         driver.quit();
-    }*/
+    }
 
     @Test
     public void test_log_in() {
