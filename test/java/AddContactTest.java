@@ -21,11 +21,11 @@ public class AddContactTest {
         driver = new ChromeDriver();
         driver.get(path + "Controller?command=Index");
     }
-
+/*
     @After
     public void clean() {
         driver.quit();
-    }
+    }*/
 
     @Test
     public void test_log_in() {
@@ -41,21 +41,21 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("0412456512");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
 
         addContactPage.submitValid();
         assertEquals("Contacts", addContactPage.getTitle());
-        assertTrue(addContactPage.containsFirstName("Sigfried"));
-        assertTrue(addContactPage.containsLastName("Seldeslachts"));
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         assertTrue(addContactPage.containsDate("11/11/2020"));
         assertTrue(addContactPage.containsHour("08:55"));
         assertTrue(addContactPage.containsPhoneNumber("0412456512"));
-        assertTrue(addContactPage.containsUserWithEmail("sigfried@ucll.be"));
+        assertTrue(addContactPage.containsUserWithEmail("mark@ucll.be"));
     }
 
     @Test
@@ -66,11 +66,11 @@ public class AddContactTest {
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
         addContactPage.setFirstNameField("");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("0412456512");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
         addContactPage.submitValid();
 
         assertEquals("Contacts", addContactPage.getTitle());
@@ -84,12 +84,12 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
+        addContactPage.setFirstNameField("Mark");
         addContactPage.setLastNamefield("");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("0412456512");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
         addContactPage.submitValid();
 
         assertEquals("Contacts", addContactPage.getTitle());
@@ -102,12 +102,12 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("0412456512");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
         addContactPage.submitValid();
 
         assertEquals("Contacts", addContactPage.getTitle());
@@ -121,12 +121,12 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("");
         addContactPage.setPhoneNumberField("0412456512");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
         addContactPage.submitValid();
 
         assertEquals("Contacts", addContactPage.getTitle());
@@ -140,12 +140,12 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("");
-        addContactPage.setEmailField("sigfried@ucll.be");
+        addContactPage.setEmailField("mark@ucll.be");
         addContactPage.submitValid();
 
         assertEquals("Contacts", addContactPage.getTitle());
@@ -159,8 +159,8 @@ public class AddContactTest {
 
         AddContactPage addContactPage = PageFactory.initElements(driver, AddContactPage.class);
 
-        addContactPage.setFirstNameField("Sigfried");
-        addContactPage.setLastNamefield("Seldeslachts");
+        addContactPage.setFirstNameField("Mark");
+        addContactPage.setLastNamefield("Walberg");
         addContactPage.setDateField("11-11-2020");
         addContactPage.setHourField("08:55");
         addContactPage.setPhoneNumberField("0412456512");

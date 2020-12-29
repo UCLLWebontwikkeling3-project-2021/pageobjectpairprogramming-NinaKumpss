@@ -68,7 +68,6 @@ public class AddContactPage extends Page{
 
     public void submitValid() {
         signUpButton.click();
-        //return PageFactory.initElements(driver, AddContactPage.class);
     }
 
     public boolean hasErrorMessage(String message) {
@@ -141,35 +140,4 @@ public class AddContactPage extends Page{
         }
         return found;
     }
-
-    public boolean hasEmptyFirstName() {
-        return firstNameField.getAttribute("value").isEmpty();
-    }
-
-    public boolean hasStickyFirstName (String firstname) {
-        return firstname.equals(firstNameField.getAttribute("value"));
-    }
-
-    public boolean hasStickyLastName (String lastName) {
-        return lastName.equals(lastNamefield.getAttribute("value"));
-    }
-
-    public boolean hasStickyDate (String date) {
-        return date.equals(dateField.getAttribute("value"));
-    }
-
-    public boolean hasStickyHour (String hour) {
-        return hour.equals(hourField.getAttribute("value"));
-    }
-
-    public boolean hasStickyPhoneNumber (String phoneNumber) {
-        return phoneNumber.equals(phoneNumberField.getAttribute("value"));
-    }
-
-    public boolean hasStickyEmail (String email) {
-        return email.equals(emailField.getAttribute("value"));
-    }
-
-
-
 }
