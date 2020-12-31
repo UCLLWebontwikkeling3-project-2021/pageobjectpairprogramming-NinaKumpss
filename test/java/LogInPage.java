@@ -45,20 +45,4 @@ public class LogInPage extends Page {
         setPassword("test");
         submitValid();
     }
-
-    public void loginAdmin() {
-        setUserId("admin");
-        setPassword("admin");
-        submitValid();
-    }
-
-    public boolean hasErrorMessage(String message) {
-        WebElement errorMessage = driver.findElement(By.xpath("/html/body/div/main/div/ul/li"));
-        return (message.equals(errorMessage.getText()));
-    }
-
-    public boolean hasWelcomeMessage (String message) {
-        WebElement welcomeMsg = driver.findElement(By.xpath("/html/body/div/main/p"));
-        return message.equals(welcomeMsg.getText());
-    }
 }
